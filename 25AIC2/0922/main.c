@@ -1,32 +1,50 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define value 50
+#define num 20
 
 int main()
 {
 	srand(time(NULL));
 
-	int a[value];
-	int b[value];
-
-	for (int i = 0; i < value; i++)
+	int a[num];
+	int b[num];
+	int index[num];
+	printf("	");
+	for (int i = 0; i < num; i++)
 	{
-		a[i] = rand() % value;
+		index[i] = i;
+		printf("%4d ", index[i]);
+	}
+
+	printf("\n\na	");
+	int i = 0;
+
+	while (i < num)
+	{
+		a[i] = rand() % num;
+
+		int duplicate = 0;
 		for (int j = 0; j < i; j++)
 		{
-			if (a[i] == a[j])
+			if (a[j] == a[i])
 			{
-				i--;
+				duplicate = 1;
+				break;
 			}
 		}
-		printf("%d ", a[i]);
+
+		if (!duplicate)
+		{
+			printf("%4d ", a[i]);
+			i++;
+		}
 	}
-	printf("\n========================================================================================================================\n");
-	for (int i = 0; i < value; i++)
+	printf("\nb	");
+	for (int i = 0; i < num; i++)
 	{
 		int aindex = -1;
-		for (int j = 0; j < value; j++)
+		for (int j = 0; j < num; j++)
 		{
 			if (i == a[j])
 			{
@@ -35,7 +53,7 @@ int main()
 			}
 		}
 		b[i] = aindex;
-		printf("%d ", b[i]);
+		printf("%4d ", b[i]);
 	}
 	return 0;
 }
