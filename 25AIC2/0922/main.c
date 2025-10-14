@@ -1,17 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define num 20
+#define NUM 20
 
 int main()
 {
 	srand(time(NULL));
 
-	int a[num];
-	int b[num];
-	int index[num];
+	int a[NUM];
+	int b[NUM];
+	int index[NUM];
 	printf("	");
-	for (int i = 0; i < num; i++)
+	for (int i = 0; i < NUM; i++)
 	{
 		index[i] = i;
 		printf("%4d ", index[i]);
@@ -20,9 +20,9 @@ int main()
 	printf("\n\na	");
 	int i = 0;
 
-	while (i < num)
+	while (i < NUM)
 	{
-		a[i] = rand() % num;
+		a[i] = rand() % NUM;
 
 		int duplicate = 0;
 		for (int j = 0; j < i; j++)
@@ -41,10 +41,10 @@ int main()
 		}
 	}
 	printf("\nb	");
-	for (int i = 0; i < num; i++)
+	for (int i = 0; i < NUM; i++)
 	{
 		int aindex = -1;
-		for (int j = 0; j < num; j++)
+		for (int j = 0; j < NUM; j++)
 		{
 			if (i == a[j])
 			{
